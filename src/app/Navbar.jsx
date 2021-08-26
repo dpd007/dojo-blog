@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>dojo blog</h1>
+      <h1>the dojo blog</h1>
       <div className="links">
         <a href="/">home</a>
         {/* implementing the inline style */}

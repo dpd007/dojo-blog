@@ -16,6 +16,7 @@
 }
 .navbar h1 {
   color: #f1356d;
+  text-transform: capitalize;
 }
 .navbar .links {
   margin-left: auto;
