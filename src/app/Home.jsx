@@ -20,6 +20,8 @@ const Home = () => {
 
   //Outputting the Lists
   const [blogs, setBlogs] = useState(null);
+  //in any case data fetch is taking long time, we should show a loading message
+  const [isLoading, setIsLoading] = useState(true);
 
   //using JSON Server to fetch the data
   //END POINTS
@@ -32,13 +34,16 @@ const Home = () => {
 
   //   learning the useEffect Hook
   useEffect(() => {
-    fetch("http://localhost:8080/blogs")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setBlogs(data);
-      });
+    setTimeout(() => {
+      fetch("http://localhost:8080/blogs")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setBlogs(data);
+          setIsLoading(false);
+        });
+    }, 1000);
   }, []);
   return (
     <div className="home">
@@ -55,6 +60,8 @@ const Home = () => {
       </p> */}
       {/* <button onClick={handleClick}>Click Me</button> */}
       {/* using props to send data to another component*/}
+      {/* comparing with isLoading */}
+      {isLoading && <div>Please wait..Data will be here.</div>}
       {blogs && (
         <BlogsList
           blogs={blogs}
