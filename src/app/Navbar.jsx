@@ -5,12 +5,15 @@ const Navbar = () => {
       <div className="links">
         <a href="/">home</a>
         {/* implementing the inline style */}
-        <a href="/create" style={{
-            color : "white",
+        <a
+          href="/create"
+          style={{
+            color: "white",
             backgroundColor: "#f1356d",
-            borderRadius: "8px"
-        }}>
-          new blog
+            borderRadius: "8px",
+          }}
+        >
+          New blog
         </a>
         {/* implementing the inline style */}
       </div>
