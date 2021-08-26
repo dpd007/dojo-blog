@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import BlogsList from "./BlogLists";
+import UseFetch from "./UseFetch";
 const Home = () => {
   // learning the handling event
   //   const handleClick = (e) => {
@@ -18,44 +19,27 @@ const Home = () => {
   //     setAge(23);
   //   };
 
-  //Outputting the Lists
-  const [blogs, setBlogs] = useState(null);
-  //in any case data fetch is taking long time, we should show a loading message
-  const [isLoading, setIsLoading] = useState(true);
-
-  //creating a error state
-  const [error, setError] = useState(null);
+  //contents gone to useFetch
+  // const apiUrl = "http://localhost:8080/blogs";
+  const {
+    data: blogs,
+    isLoading,
+    error,
+  } = UseFetch("http://localhost:8080/blogs");
+  //contents gone to useFetch
 
   //using JSON Server to fetch the data
   //END POINTS
   // /blogs - fetch all
 
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter((blog) => blog.id !== id);
-    setBlogs(newBlogs);
-  };
+  // const handleDelete = (id) => {
+  //   const newBlogs = blogs.filter((blog) => blog.id !== id);
+  //   setBlogs(newBlogs);
+  // };
 
   //learning the useEffect Hook
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8080/blogs")
-        .then((res) => {
-          if (!res.ok) {
-            //if response is not true then throw an error
-            throw Error('Could not fetch the data from the resource');
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setBlogs(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setIsLoading(true);
-          setError(error.message);
-        });
-    }, 1000);
-  }, []);
+  //using CUSTOM HOOK - useFetch
+
   return (
     <div className="home">
       {/* <h1>Home Page</h1> */}
@@ -79,7 +63,7 @@ const Home = () => {
         <BlogsList
           blogs={blogs}
           title={"All Blogs are here."}
-          deleteBlog={handleDelete}
+          // deleteBlog={handleDelete}
         />
       )}
 
