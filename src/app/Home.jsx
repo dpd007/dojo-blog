@@ -43,8 +43,12 @@ const Home = () => {
         {name} is {age} years old!!
       </p> */}
       {/* <button onClick={handleClick}>Click Me</button> */}
-      {/* //using props to send data to another component*/}
+      {/* using props to send data to another component*/}
       <BlogsList blogs={blogs} title={"All Blogs are here."} />
+      <BlogsList
+        blogs={blogs.filter((blog) => blog.author === "Dugu")}
+        title={"Dugu's Blogs"}
+      />
     </div>
   );
 };
