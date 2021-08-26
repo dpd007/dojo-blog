@@ -29,6 +29,11 @@ const Home = () => {
     },
     { id: 3, title: "Learning React", body: "lorem ipsum...", author: "Dev" },
   ]);
+
+  const handleDelete = (id) => {
+      const newBlogs = blogs.filter(blog => blog.id !== id);
+      setblogs(newBlogs);
+  };
   return (
     <div className="home">
       {/* <h1>Home Page</h1> */}
@@ -44,11 +49,13 @@ const Home = () => {
       </p> */}
       {/* <button onClick={handleClick}>Click Me</button> */}
       {/* using props to send data to another component*/}
-      <BlogsList blogs={blogs} title={"All Blogs are here."} />
-      <BlogsList
+      <BlogsList blogs={blogs} title={"All Blogs are here."} deleteBlog={handleDelete}/>
+
+      {/* using the filter() to filter out the particular data */}
+      {/* <BlogsList
         blogs={blogs.filter((blog) => blog.author === "Dugu")}
         title={"Dugu's Blogs"}
-      />
+      /> */}
     </div>
   );
 };
