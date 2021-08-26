@@ -4,7 +4,6 @@ const Navbar = () => {
       <h1>the dojo blog</h1>
       <div className="links">
         <a href="/">home</a>
-        {/* implementing the inline style */}
         <a
           href="/create"
           style={{
@@ -15,7 +14,6 @@ const Navbar = () => {
         >
           New blog
         </a>
-        {/* implementing the inline style */}
       </div>
     </nav>
   );

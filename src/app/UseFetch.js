@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 const UseFetch = (url) => {
-  //Outputting the Lists
   const [data, setData] = useState(null);
   //in any case data fetch is taking long time, we should show a loading message
   const [isLoading, setIsLoading] = useState(true);
-
-  //creating a error state
   const [error, setError] = useState(null);
   useEffect(() => {
     setTimeout(() => {
@@ -28,7 +25,7 @@ const UseFetch = (url) => {
     }, 1000);
   }, [url]);
 
-  return {data, isLoading, error};
+  return { data, isLoading, error };
 };
 
 export default UseFetch;
