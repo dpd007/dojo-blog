@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
 import BlogsList from "./BlogLists";
 import UseFetch from "./UseFetch";
 const Home = () => {
-  // const apiUrl = "http://localhost:8080/blogs";
+  const apiUrl = "http://localhost:8080/blogs";
   const {
     data: blogs,
     isLoading,
     error,
-  } = UseFetch("http://localhost:8080/blogs");
+  } = UseFetch(apiUrl);
 
   return (
     <div className="home">
