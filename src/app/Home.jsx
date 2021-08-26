@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogsList from "./BlogLists";
 const Home = () => {
   // learning the handling event
@@ -31,9 +31,14 @@ const Home = () => {
   ]);
 
   const handleDelete = (id) => {
-      const newBlogs = blogs.filter(blog => blog.id !== id);
-      setblogs(newBlogs);
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+    setblogs(newBlogs);
   };
+
+  //   learning the useEffect Hook
+  useEffect(() => {
+      console.log('useEffect ran!!!');
+  }, [blogs])
   return (
     <div className="home">
       {/* <h1>Home Page</h1> */}
@@ -49,7 +54,11 @@ const Home = () => {
       </p> */}
       {/* <button onClick={handleClick}>Click Me</button> */}
       {/* using props to send data to another component*/}
-      <BlogsList blogs={blogs} title={"All Blogs are here."} deleteBlog={handleDelete}/>
+      <BlogsList
+        blogs={blogs}
+        title={"All Blogs are here."}
+        deleteBlog={handleDelete}
+      />
 
       {/* using the filter() to filter out the particular data */}
       {/* <BlogsList
