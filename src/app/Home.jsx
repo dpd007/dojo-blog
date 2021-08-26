@@ -23,6 +23,9 @@ const Home = () => {
   //in any case data fetch is taking long time, we should show a loading message
   const [isLoading, setIsLoading] = useState(true);
 
+  //creating a error state
+  const [error, setError] = useState(null);
+
   //using JSON Server to fetch the data
   //END POINTS
   // /blogs - fetch all
@@ -32,16 +35,24 @@ const Home = () => {
     setBlogs(newBlogs);
   };
 
-  //   learning the useEffect Hook
+  //learning the useEffect Hook
   useEffect(() => {
     setTimeout(() => {
       fetch("http://localhost:8080/blogs")
         .then((res) => {
+          if (!res.ok) {
+            //if response is not true then throw an error
+            throw Error('Could not fetch the data from the resource');
+          }
           return res.json();
         })
         .then((data) => {
           setBlogs(data);
           setIsLoading(false);
+        })
+        .catch((error) => {
+          setIsLoading(true);
+          setError(error.message);
         });
     }, 1000);
   }, []);
@@ -60,6 +71,8 @@ const Home = () => {
       </p> */}
       {/* <button onClick={handleClick}>Click Me</button> */}
       {/* using props to send data to another component*/}
+      {/* checking is there any error or not */}
+      {error && <div>{error}</div>}
       {/* comparing with isLoading */}
       {isLoading && <div>Please wait..Data will be here.</div>}
       {blogs && (
