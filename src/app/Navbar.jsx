@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-const Navbar = () => {
+import {
+  StyledNavbar,
+  StyledTitle,
+  StyledLinks,
+} from "./StyledComponents.style";
+const Navbar = ({ className }) => {
   return (
-    <nav className="navbar">
-      <h1>the dojo blog</h1>
-      <div className="links">
+    <StyledNavbar>
+      <StyledTitle>the dojo blog</StyledTitle>
+      <StyledLinks>
         <Link to="/">home</Link>
         <Link to="/create">New blog</Link>
-      </div>
-    </nav>
+      </StyledLinks>
+    </StyledNavbar>
   );
 };
 
