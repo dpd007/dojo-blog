@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   StyledCreate,
   StyledLabel,
@@ -7,10 +7,14 @@ import {
   StyledSelect,
   StyledCreateButton,
 } from "./StyledComponents.style";
+import { url } from "./Home";
 const Create = () => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const apiUrl = useContext(url);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
+
+  const [isAddPending, setAddIsPending] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const blog = {
@@ -18,7 +22,21 @@ const Create = () => {
       body,
       author,
     };
-    console.log(blog);
+    setAddIsPending(true);
+    fetch(apiUrl, {
+      //add type of request
+      method: "POST",
+      //headers
+      headers: { "Content-Type": "application/json" },
+      //add data
+      body: JSON.stringify(blog),
+    }).then(() => {
+      //   setTitle("");
+      //   setBody("");
+      //   setAuthor("");
+      console.log("blog added");
+      setAddIsPending(false);
+    });
   };
   return (
     <StyledCreate>
@@ -46,7 +64,10 @@ const Create = () => {
           <option value="dev">Dev</option>
           <option value="dugu">Dugu</option>
         </StyledSelect>
-        <StyledCreateButton>Add Blog</StyledCreateButton>
+        {!isAddPending && <StyledCreateButton>Add Blog</StyledCreateButton>}
+        {isAddPending && (
+          <StyledCreateButton disabled>Saving..</StyledCreateButton>
+        )}
       </form>
     </StyledCreate>
   );
