@@ -35,13 +35,13 @@ export const StyledLinks = styled.div`
   margin-left: auto;
 `;
 
-export const Content = styled.div`
+export const StyledContent = styled.div`
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
 `;
 
-export const BlogPreview = styled.div`
+export const StyledBlogPreview = styled.div`
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
@@ -50,8 +50,19 @@ export const BlogPreview = styled.div`
   }
 `;
 
-export const BlogPreviewTitle = styled.h2`
+export const StyledBlogPreviewTitle = styled.h2`
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
+`;
+
+export const StyledBlogDetails = styled.div`
+& h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+& div{
+  margin: 20px 0;
+}
 `;

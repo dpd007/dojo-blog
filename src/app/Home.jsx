@@ -2,13 +2,14 @@ import BlogsList from "./BlogLists";
 // import Test1 from "./Test1.jsx";
 import UseFetch from "./UseFetch";
 // import { createContext, useState } from "react";
-import { useState } from "react";
+import { createContext } from "react";
 // import Test2 from "./Test2";
 // import Test3 from "./Test3";
 // const FirstName = createContext("Gayatree");
 // const LastName = createContext("Dutta");
+const apiUrl = "http://localhost:8080/blogs";
+const url = createContext(apiUrl);
 const Home = () => {
-  const apiUrl = "http://localhost:8080/blogs";
   const { data: blogs, isLoading, error } = UseFetch(apiUrl);
 
   // const [name, setName] = useState("Durga");
@@ -34,3 +35,4 @@ const Home = () => {
 
 // export { FirstName, LastName };
 export default Home;
+export { url };

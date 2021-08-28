@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Create from "./app/Create";
 import BlogDetails from "./app/BlogDetails";
 // import { GlobalStyles } from "./app/StyledComponents.style";
-import { Content } from "./app/StyledComponents.style";
+import { StyledContent } from "./app/StyledComponents.style";
 
 function App() {
   return (
@@ -12,14 +12,14 @@ function App() {
       {/* <GlobalStyles> */}
       <div className="App">
         <Navbar />
-        <Content>
+        <StyledContent>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/create" component={Create} />
             {/* :id means a dynamic value */}
             <Route exact path="/blogs/:id" component={BlogDetails} />
           </Switch>
-        </Content>
+        </StyledContent>
       </div>
       {/* </GlobalStyles> */}
     </Router>
