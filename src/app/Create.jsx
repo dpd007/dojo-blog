@@ -8,13 +8,22 @@ import {
   StyledCreateButton,
 } from "./StyledComponents.style";
 const Create = () => {
-  const [title, setTitle] = useState(null);
-  const [body, setBody] = useState(null);
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
   const [author, setAuthor] = useState("mario");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const blog = {
+      title,
+      body,
+      author,
+    };
+    console.log(blog);
+  };
   return (
     <StyledCreate>
       <h2>Add a new blog.</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <StyledLabel>Blog Title</StyledLabel>
         <StyledInput
           type="text"
@@ -38,9 +47,6 @@ const Create = () => {
           <option value="dugu">Dugu</option>
         </StyledSelect>
         <StyledCreateButton>Add Blog</StyledCreateButton>
-        <p>{title}</p>
-        <p>{body}</p>
-        <p>{author}</p>
       </form>
     </StyledCreate>
   );
