@@ -57,12 +57,60 @@ export const StyledBlogPreviewTitle = styled.h2`
 `;
 
 export const StyledBlogDetails = styled.div`
-& h2{
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 10px;
-}
-& div{
-  margin: 20px 0;
-}
+  & h2 {
+    font-size: 20px;
+    color: #f1356d;
+    margin-bottom: 10px;
+  }
+  & div {
+    margin: 20px 0;
+  }
+`;
+
+export const StyledCreate = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  & h2 {
+    font-size: 20px;
+    color: #f1356d;
+    margin-bottom: 30px;
+  }
+`;
+
+export const StyledLabel = styled.label`
+  text-align: left;
+  display: block;
+`;
+export const StyledInput = styled.input`
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+`;
+export const StyledTextArea = styled.textarea`
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+`;
+export const StyledSelect = styled.select`
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+`;
+export const StyledCreateButton = styled.button`
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 `;
