@@ -114,3 +114,11 @@ export const StyledCreateButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
 `;
+export const StyledDeleteButton = styled.button`
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+`;
