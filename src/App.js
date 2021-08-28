@@ -5,6 +5,7 @@ import Create from "./app/Create";
 import BlogDetails from "./app/BlogDetails";
 // import { GlobalStyles } from "./app/StyledComponents.style";
 import { StyledContent } from "./app/StyledComponents.style";
+import NotFound from "./app/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route exact path="/create" component={Create} />
             {/* :id means a dynamic value */}
             <Route exact path="/blogs/:id" component={BlogDetails} />
+            {/* * means catch all routes */}
+            <Route path="*" component={NotFound} />
           </Switch>
         </StyledContent>
       </div>
