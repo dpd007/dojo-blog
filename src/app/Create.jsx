@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import {
   StyledCreate,
   StyledLabel,
@@ -15,6 +16,8 @@ const Create = () => {
   const [author, setAuthor] = useState("mario");
 
   const [isAddPending, setAddIsPending] = useState(false);
+
+  const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
     const blog = {
@@ -36,6 +39,11 @@ const Create = () => {
       //   setAuthor("");
       console.log("blog added");
       setAddIsPending(false);
+      //it goes back to previous page by one
+      //   history.go(-1);
+
+      //redirects to home page
+      history.push('/');
     });
   };
   return (
