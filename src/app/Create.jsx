@@ -9,6 +9,8 @@ import {
   StyledCreateButton,
 } from "./StyledComponents.style";
 import { url } from "./Home";
+
+import axios from "axios";
 const Create = () => {
   const apiUrl = useContext(url);
   const [title, setTitle] = useState("");
@@ -26,24 +28,17 @@ const Create = () => {
       author,
     };
     setAddIsPending(true);
-    fetch(apiUrl, {
-      //add type of request
-      method: "POST",
-      //headers
-      headers: { "Content-Type": "application/json" },
-      //add data
-      body: JSON.stringify(blog),
-    }).then(() => {
-      //   setTitle("");
-      //   setBody("");
-      //   setAuthor("");
-      console.log("blog added");
-      setAddIsPending(false);
-      //it goes back to previous page by one
-      //   history.go(-1);
-
-      //redirects to home page
-      history.push('/');
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    axios.post(apiUrl, blog, { headers }).then((res) => {
+      if (res.status === 200 || res.status === 201) {
+        setTitle("");
+        setBody("");
+        setAuthor("");
+        setAddIsPending(false);
+        history.push("/");
+      }
     });
   };
   return (
