@@ -1,5 +1,5 @@
 import { useParams, useHistory } from "react-router-dom";
-import UseFetch from "./UseFetch";
+import UseFetch from "./UseAxioFetch";
 import { url as apiurl } from "./Home";
 import { useContext } from "react";
 import {

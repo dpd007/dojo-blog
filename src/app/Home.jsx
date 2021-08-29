@@ -1,6 +1,6 @@
 import BlogsList from "./BlogLists";
 // import Test1 from "./Test1.jsx";
-import UseFetch from "./UseFetch";
+import UseAxioFetch from "./UseAxioFetch";
 // import { createContext, useState } from "react";
 import { createContext } from "react";
 // import Test2 from "./Test2";
@@ -9,8 +9,9 @@ import { createContext } from "react";
 // const LastName = createContext("Dutta");
 const apiUrl = "http://localhost:8080/blogs";
 const url = createContext(apiUrl);
+
 const Home = () => {
-  const { data: blogs, isLoading, error } = UseFetch(apiUrl);
+  const { data: blogs, isLoading, error } = UseAxioFetch(apiUrl);
 
   // const [name, setName] = useState("Durga");
   // const [message, setMessage] = useState(null);
